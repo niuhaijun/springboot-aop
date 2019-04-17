@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
+ *
+ *
  * @Author: niuhaijun
  * @Date: 2019-04-17 18:05
  * @Version 1.0
@@ -39,6 +41,8 @@ public class GlobalExceptionHandler {
   /**
    * 请求方式不合适，会引发ConstraintViolationException异常
    * 如使用post请求get接口
+   *
+   * 如果 @ExceptionHandler 注解中未声明要处理的异常类型，则默认为方法参数列表中的异常类型。
    */
   @ExceptionHandler
   @ResponseStatus(BAD_REQUEST)
