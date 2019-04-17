@@ -1,4 +1,4 @@
-package com.niu.springbootaop.controller.common;
+package com.niu.springbootaop.common;
 
 import java.util.HashSet;
 

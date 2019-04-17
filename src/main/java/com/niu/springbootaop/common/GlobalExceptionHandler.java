@@ -1,12 +1,12 @@
-package com.niu.springbootaop.controller.common;
+package com.niu.springbootaop.common;
 
-import static com.niu.springbootaop.controller.common.KeyConstant.KEY_CONTENT_TYPE;
-import static com.niu.springbootaop.controller.common.KeyConstant.KEY_RESULT_MESSAGE;
-import static com.niu.springbootaop.controller.common.KeyConstant.KEY_RESULT_STATUS;
-import static com.niu.springbootaop.controller.common.KeyConstant.KEY_UTF8;
-import static com.niu.springbootaop.controller.common.ReturnStatus.API_PARAM_INVALID;
-import static com.niu.springbootaop.controller.common.ReturnStatus.SC_BAD_REQUEST;
-import static com.niu.springbootaop.controller.common.ReturnStatus.SC_INTERNAL_SERVER_ERROR;
+import static com.niu.springbootaop.common.KeyConstant.KEY_CONTENT_TYPE;
+import static com.niu.springbootaop.common.KeyConstant.KEY_RESULT_MESSAGE;
+import static com.niu.springbootaop.common.KeyConstant.KEY_RESULT_STATUS;
+import static com.niu.springbootaop.common.KeyConstant.KEY_UTF8;
+import static com.niu.springbootaop.common.ReturnStatus.API_PARAM_INVALID;
+import static com.niu.springbootaop.common.ReturnStatus.SC_BAD_REQUEST;
+import static com.niu.springbootaop.common.ReturnStatus.SC_INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 import com.alibaba.fastjson.JSONObject;
