@@ -30,4 +30,15 @@ public class UserServiceImpl implements UserService {
 
     return map.getOrDefault(id, map.get(0));
   }
+
+  @Action
+  @Override
+  public void updateUserById(Integer id) {
+
+    UserVO userVO = map.get(id);
+    if (userVO != null) {
+
+    }
+
+  }
 }

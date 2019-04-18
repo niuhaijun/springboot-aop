@@ -5,6 +5,7 @@ import com.niu.springbootaop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -20,8 +21,11 @@ public class UserController {
   private UserService userService;
 
 
+  /**
+   *【@Valid @NotNull Integer id】不起作用，具体原因还在排查中
+   */
   @GetMapping(value = "getUser")
-  public UserVO getUser(Integer id) {
+  public UserVO getUser(@RequestParam Integer id) {
 
     return userService.getUserById(id);
   }
