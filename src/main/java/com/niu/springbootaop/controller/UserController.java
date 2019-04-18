@@ -2,9 +2,8 @@ package com.niu.springbootaop.controller;
 
 import com.niu.springbootaop.controller.vo.UserVO;
 import com.niu.springbootaop.service.UserService;
-import javax.validation.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,10 +20,10 @@ public class UserController {
   private UserService userService;
 
 
-  @PostMapping
-  public UserVO getUser(@NotEmpty String uuid) {
+  @GetMapping(value = "getUser")
+  public UserVO getUser(Integer id) {
 
-    return userService.getUserById(uuid);
+    return userService.getUserById(id);
   }
 
 }

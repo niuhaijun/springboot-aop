@@ -10,6 +10,6 @@ import com.niu.springbootaop.controller.vo.UserVO;
 public interface UserService {
 
 
-  UserVO getUserById(String uuid);
+  UserVO getUserById(Integer uuid);
 
 }

@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- *
+ * 全局异常处理器
  *
  * @Author: niuhaijun
  * @Date: 2019-04-17 18:05
@@ -49,7 +49,7 @@ public class GlobalExceptionHandler {
   public void handleBadRequest(HttpServletResponse response, ConstraintViolationException ex) {
 
     String message = ex.getConstraintViolations().stream()
-        .map(Object::toString).collect(Collectors.joining(","));
+        .map(Object::toString).collect(Collectors.joining(", "));
 
     response.setCharacterEncoding(KEY_UTF8);
     response.setContentType(KEY_CONTENT_TYPE);
@@ -102,7 +102,7 @@ public class GlobalExceptionHandler {
     logger.error(ex.getMessage(), ex);
     response.setCharacterEncoding(KEY_UTF8);
     response.setContentType(KEY_CONTENT_TYPE);
-    response.setStatus(SC_BAD_REQUEST.getValue());
+    response.setStatus(API_PARAM_INVALID.getValue());
     try (PrintWriter writer = response.getWriter()) {
       BindingResult result = ex.getBindingResult();
       List<FieldError> fieldErrors = result.getFieldErrors();

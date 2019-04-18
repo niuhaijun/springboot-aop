@@ -12,7 +12,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class UserVO {
 
-  private String uuid;
+  private String id;
   private String username;
   private String password;
 }

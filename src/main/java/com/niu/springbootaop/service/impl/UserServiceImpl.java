@@ -15,18 +15,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-  private Map<String, UserVO> map = new HashMap<String, UserVO>() {
+  private Map<Integer, UserVO> map = new HashMap<Integer, UserVO>() {
     {
-      put("1", new UserVO("1", "牛海军", "123456"));
-      put("2", new UserVO("2", "黄文君", "abcdef"));
+      put(0, new UserVO("0", "其他", "其他"));
+      put(1, new UserVO("1", "牛海军", "123456"));
+      put(2, new UserVO("2", "黄文君", "abcdef"));
     }
   };
 
 
   @Action
   @Override
-  public UserVO getUserById(String uuid) {
+  public UserVO getUserById(Integer id) {
 
-    return map.get(uuid);
+    return map.getOrDefault(id, map.get(0));
   }
 }
