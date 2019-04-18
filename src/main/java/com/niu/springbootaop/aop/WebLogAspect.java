@@ -3,6 +3,7 @@ package com.niu.springbootaop.aop;
 import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -32,23 +33,45 @@ public class WebLogAspect {
 
   }
 
-
+  /**
+   * 前置通知
+   */
   @Before("webLog()")
   public void doBefore(JoinPoint joinPoint) throws Throwable {
     // 接收到请求，记录请求内容
     ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder
         .getRequestAttributes();
     HttpServletRequest request = attributes.getRequest();
+    Signature signature = joinPoint.getSignature();
 
     // 记录下请求内容
     logger.info("URL : " + request.getRequestURL().toString());
     logger.info("HTTP_METHOD : " + request.getMethod());
     logger.info("IP : " + request.getRemoteAddr());
-    logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName()
-        + "." + joinPoint.getSignature().getName());
-    logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
+
+    /**
+     * 类名称
+     */
+    String typeName = signature.getDeclaringTypeName();
+    logger.info("CLASS : " + typeName);
+
+    /**
+     * 方法名称
+     */
+    String methodName = signature.getName();
+    logger.info("METHOD : " + methodName);
+
+    /**
+     * 入参值
+     */
+    String parameterValue = Arrays.toString(joinPoint.getArgs());
+    logger.info("ARGS : " + parameterValue);
   }
 
+
+  /**
+   * 后置通知
+   */
   @AfterReturning(returning = "ret", pointcut = "webLog()")
   public void doAfterReturning(Object ret) throws Throwable {
     // 处理完请求，返回内容

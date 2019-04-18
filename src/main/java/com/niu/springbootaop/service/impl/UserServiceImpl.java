@@ -23,22 +23,20 @@ public class UserServiceImpl implements UserService {
     }
   };
 
-
-  @Action
+  @Action(value = "根据用户ID查询用户信息")
   @Override
-  public UserVO getUserById(Integer id) {
+  public UserVO getUserById(Integer id, String name) {
 
     return map.getOrDefault(id, map.get(0));
   }
 
-  @Action
+  @Action(value = "根据用户ID更新用户信息")
   @Override
-  public void updateUserById(Integer id) {
+  public void updateUserById(Integer id, String name) {
 
     UserVO userVO = map.get(id);
     if (userVO != null) {
-
+      userVO.setUsername(name);
     }
-
   }
 }
