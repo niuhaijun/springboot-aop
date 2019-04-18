@@ -1,6 +1,5 @@
 package com.niu.springbootaop.aop;
 
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
@@ -8,7 +7,6 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -27,7 +25,7 @@ public class WebLogAspect {
   private static final Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
 
   /**
-   * 切点
+   * 正则切点
    */
   @Pointcut("execution(public * com.niu.springbootaop.controller..*.*(..))")
   public void webLog() {
@@ -46,9 +44,8 @@ public class WebLogAspect {
     logger.info("URL : " + request.getRequestURL().toString());
     logger.info("HTTP_METHOD : " + request.getMethod());
     logger.info("IP : " + request.getRemoteAddr());
-    logger.info(
-        "CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint
-            .getSignature().getName());
+    logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName()
+        + "." + joinPoint.getSignature().getName());
     logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
   }
 
