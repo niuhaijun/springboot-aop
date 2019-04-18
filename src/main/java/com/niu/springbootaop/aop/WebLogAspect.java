@@ -42,13 +42,13 @@ public class WebLogAspect {
     ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder
         .getRequestAttributes();
     HttpServletRequest request = attributes.getRequest();
-    Signature signature = joinPoint.getSignature();
-
     // 记录下请求内容
     logger.info("URL : " + request.getRequestURL().toString());
     logger.info("HTTP_METHOD : " + request.getMethod());
     logger.info("IP : " + request.getRemoteAddr());
 
+
+    Signature signature = joinPoint.getSignature();
     /**
      * 类名称
      */
