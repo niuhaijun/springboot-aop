@@ -102,7 +102,7 @@ public class GlobalExceptionHandler {
     logger.error(ex.getMessage(), ex);
     response.setCharacterEncoding(KEY_UTF8);
     response.setContentType(KEY_CONTENT_TYPE);
-    response.setStatus(API_PARAM_INVALID.getValue());
+    response.setStatus(SC_BAD_REQUEST.getValue());
     try (PrintWriter writer = response.getWriter()) {
       BindingResult result = ex.getBindingResult();
       List<FieldError> fieldErrors = result.getFieldErrors();
