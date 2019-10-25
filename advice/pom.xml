@@ -12,9 +12,10 @@
   </parent>
 
 
-  <groupId>com.niu</groupId>
   <artifactId>advice</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
   <name>advice</name>
   <description>增强，可用于日志、缓存等场景</description>
 

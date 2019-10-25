@@ -1,15 +1,11 @@
-# Getting Started
+### Spring事务
+- 声明式事务
+- 事务的传播
+---
 
-### Reference Documentation
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-* [Validating Form Input](https://spring.io/guides/gs/validating-form-input/)
-
+### AOP
+- 前置通知
+- 后置通知
+- 环绕通知
+- JDK动态代理
+- CGLIB代理 
